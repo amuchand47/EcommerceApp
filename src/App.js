@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./component/Navbar";
+import Product from "./component/Product";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import About from "./component/About";
+import Contact from "./component/Contact";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+
+        <Navbar title="Jiya Fabrics" aboutText="About Us" contactText="Contact Us" />
+        
+        <div className="container my-3">
+         
+         <Routes>
+ 
+           <Route path="/" element = {<Product/>}/>
+           <Route path="/about" element = {<About />}/>
+           <Route path="/contact" element = {<Contact />}/>
+
+         </Routes>
+
+        </div>
+        
+      </BrowserRouter>
+      
+    </>
   );
 }
 
